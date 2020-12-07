@@ -1,0 +1,15 @@
+parameters:
+    problems: []
+
+steps:
+- ${{ each problem in parameters.problems }}:
+    - task: Docker@2
+      displayName: 'Build and Push ${{ problem }}'
+      inputs:
+        command: buildAndPush
+        repository: '${{ problem }}'
+        Dockerfile: '$(Build.SourcesDirectory)/${{ problem }}/Dockerfile'
+        containerRegistry: AzureContainerRegistryServiceConnection
+        tags: |
+            $(Build.BuildId)
+
