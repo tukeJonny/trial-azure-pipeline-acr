@@ -2,21 +2,28 @@
 
 [![Build Status](https://dev.azure.com/ne250143/test/_apis/build/status/tukeJonny.trial-azure-pipeline-acr?branchName=master)](https://dev.azure.com/ne250143/test/_build/latest?definitionId=3&branchName=master)
 
-## Summary
+## 概要
 
-This repository is monorepo for multiple Dockerized projects.
+Azure DevOps + Azure ACRの試験リポジトリです。
 
-And, connected to Azure DevOps.
+pushするイメージは、大きくサーバとして動くものと、静的ファイルとして配信されるものの２つがあります。
 
-Thus, we can push docker image to Azure Container Registry by CI (Azure Pipeline).
+前者は `prepare-ci.sh` を実行してazure-pipeline.ymlを更新する必要があります
 
-## How to add problem
+一方で後者は `put-staticfile.sh` を実行して、静的ファイルを正しい場所に設置する必要があります
 
-1. put problem files
-2. execute ./scripts/prepare-ci.sh
+## サーバとして動作するコンテナイメージの追加
 
-## How to add static file
+```
+$ mkdir problem_dir # 問題関連のファイルを設置するディレクトリ作成
+$ vim problem_dir/Dockerfile # Dockerfile作成
+$ vim ...
+$ ./scripts/prepare-ci.sh # pushする前に、azure-pipelines.ymlを更新
+```
 
-1. put static file anywhere
-2. execute ./scripts/put-staticfile.sh
+## 静的ファイルの追加
+
+```
+$ ./scripts/put-staticfile.sh /path/to/staticfile
+```
 
