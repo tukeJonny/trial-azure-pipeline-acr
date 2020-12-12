@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "http-single.fullname" . }}
+  labels:
+    {{- include "http-single.labels" . | nindent 4 }}
+spec:
+  type: LoadBalancer
+  ports:
+    - port: {{ .Values.port.exposePort }}
+      targetPort: {{ .Values.port.targetPort }}
+      protocol: {{ .Values.port.protocol }}
+      name: {{ .Values.port.name }}
+  selector:
+    app: {{ .Values.appLabel }}

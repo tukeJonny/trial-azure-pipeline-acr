@@ -1,0 +1,74 @@
+# Default values for http-single.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+
+##
+## Required Configuration
+##
+
+replicaCount: 1
+containerName: "problem2"
+
+image:
+  repository: acr.registry.io/problem2
+  pullPolicy: IfNotPresent
+  # Please increment tag
+  tag: "1"
+
+appLabel: problem2
+genreLabel: pwn
+
+port:
+  name: tcp-problem1
+  targetPort: 8000
+  protocol: "TCP"
+  exposePort: 18000
+
+livenessProbe:
+  enabled: true
+  port: 8000
+
+readinessProbe:
+  enabled: true
+  port: 8000
+
+
+##
+## Optional configuration
+##
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+podAnnotations: {}
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
