@@ -11,5 +11,5 @@ steps:
         Dockerfile: '$(Build.SourcesDirectory)/${{ problem.path }}'
         containerRegistry: AzureContainerRegistryServiceConnection
         tags: |
-          $(BuildId)
+          $(Build.BuildId)
 
