@@ -14,7 +14,7 @@ image:
   repository: acrpipe.azurecr.io/problem1
   pullPolicy: IfNotPresent
   # Please increment tag
-  tag: "1"
+  tag: latest
 
 appLabel: problem1
 genreLabel: web
