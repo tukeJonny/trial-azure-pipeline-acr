@@ -13,7 +13,7 @@ containerName: "problem1"
 image:
   repository: acrpipe.azurecr.io/problem1
   pullPolicy: IfNotPresent
-  tag: "1"
+  tag: "5"
 
 appLabel: problem1
 genreLabel: web
