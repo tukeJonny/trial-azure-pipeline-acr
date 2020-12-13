@@ -1,3 +1,3 @@
 <?php
-echo "Pong"
+echo "Pong";
 

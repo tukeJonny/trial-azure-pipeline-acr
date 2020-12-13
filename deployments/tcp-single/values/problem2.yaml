@@ -35,6 +35,19 @@ readinessProbe:
 
 
 ##
+## Disable configuration
+##
+
+serviceAccount:
+  create: false
+
+ingress:
+  enabled: false
+
+autoscaling:
+  enabled: false
+
+##
 ## Optional configuration
 ##
 

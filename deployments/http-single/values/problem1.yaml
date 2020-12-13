@@ -35,6 +35,14 @@ readinessProbe:
   path: /
   port: 80
 
+serviceAccount:
+  create: false
+
+ingress:
+  enabled: false
+
+autoscaling:
+  enabled: false
 
 ##
 ## Optional configuration
