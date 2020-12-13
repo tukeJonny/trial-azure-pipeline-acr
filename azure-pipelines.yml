@@ -12,7 +12,8 @@ jobs:
     - template: ci/build-and-push.yml
       parameters:
         problems:
-          - 'problem1'
-          - 'problem2'
-          - 'statics'
+          - name: 'problem1'
+            path: 'problem1/Dockerfile'
+          - name: 'problem2'
+            path: 'problem2/Dockerfile'
 

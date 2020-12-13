@@ -11,7 +11,7 @@ replicaCount: 1
 containerName: "problem1"
 
 image:
-  repository: acr.registry.io/problem1
+  repository: acrpipe.azurecr.io/problem1
   pullPolicy: IfNotPresent
   # Please increment tag
   tag: "1"

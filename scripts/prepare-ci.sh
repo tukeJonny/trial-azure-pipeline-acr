@@ -19,9 +19,12 @@ jobs:
         problems:
 __EOS__
 
-for path in $(ls */Dockerfile); do
+paths=$(find . -name 'Dockerfile' -type f | sed -e 's/^\.\///' | sort)
+
+for path in $paths; do
     problem_name=$(dirname $path)
-    echo "          - '$problem_name'" | tee -a azure-pipelines.yml
+    echo "          - name: '$problem_name'" | tee -a azure-pipelines.yml
+    echo "            path: '$path'" | tee -a azure-pipelines.yml
 done
 
 echo "" | tee -a azure-pipelines.yml

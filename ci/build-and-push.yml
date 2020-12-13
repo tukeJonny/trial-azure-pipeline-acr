@@ -4,12 +4,11 @@ parameters:
 steps:
 - ${{ each problem in parameters.problems }}:
     - task: Docker@2
-      displayName: 'Build and Push ${{ problem }}'
+      displayName: 'Build and Push ${{ problem.name }}'
       inputs:
         command: buildAndPush
-        repository: '${{ problem }}'
-        Dockerfile: '$(Build.SourcesDirectory)/${{ problem }}/Dockerfile'
+        repository: '${{ problem.name }}'
+        Dockerfile: '$(Build.SourcesDirectory)/${{ problem.path }}'
         containerRegistry: AzureContainerRegistryServiceConnection
-        tags: |
-            $(Build.BuildId)
+        tags: latest
 
