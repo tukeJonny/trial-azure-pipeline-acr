@@ -10,5 +10,6 @@ steps:
         repository: '${{ problem.name }}'
         Dockerfile: '$(Build.SourcesDirectory)/${{ problem.path }}'
         containerRegistry: AzureContainerRegistryServiceConnection
-        tags: latest
+        tags: |
+          $(BuildId)
 
